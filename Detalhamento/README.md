@@ -14,7 +14,7 @@ O jogo Murderer será organizado, em UML, da seguinte maneira:
      * Move: Recebe como paramâmetro as coordenadas do tabuleiro para as quais os personagens (sobrevivente e caçador) desejam ir e realiza essa movimentação no tabuleiro.
      * Tabuleiro: Construtor.
   
-* IPiece e IPieceStatic:
+* IPiece:
 ![](IPieces.jpeg)
   * Instancias: 
      * radio: Armazena o número de peças de rádio que o sobrevivente já coletou (0 a 3).
