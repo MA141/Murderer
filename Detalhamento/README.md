@@ -6,7 +6,7 @@ O jogo Murderer será organizado, em UML, da seguinte maneira:
 
 ## Interfaces e seus respectivos métodos e instâncias:
 * ITabuleiro:
-![](InterfaceTabuleiro.jpeg)
+![](Itabuleiro.jpeg)
   * Instancias: 
      * tab: Vetor bidimensional que armazena a posiçao das peças.
      * posiçoes: Vetor bidimensional que armazena as coordenas das peças chaves (Caçador, Sobrevivente, Rádio e Arma).
@@ -15,9 +15,7 @@ O jogo Murderer será organizado, em UML, da seguinte maneira:
      * Tabuleiro: Construtor.
   
 * IPiece e IPieceStatic:
-![](ipeace.jpeg)
-Como pode ser visto no diagrama, as peças do tipo rádio e arma implementaram a interface IPeaceStatic enquanto as peças moveis 
-implementaram tanto IPeaceStatic quanto IPeace.
+![](IPieces.jpeg)
   * Instancias: 
      * radio: Armazena o número de peças de rádio que o sobrevivente já coletou (0 a 3).
      * arma: Registra se o sobrevivente possui ou não a arma.
