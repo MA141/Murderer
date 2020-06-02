@@ -1,7 +1,7 @@
 [Link dos slides](https://docs.google.com/presentation/d/1pCGv_wNoytKBnk53aXQAfj_TzJ8oRLM61EuP9PZzEOQ/edit?ts=5ec3fd09#slide=id.g858dc2d46b_0_18)
 
 #Grupo
-Guilherme Zeferino Rodrigues Dobins, ra:236129
+Guilherme Zeferino Rodrigues Dobins, ra:236129.
 Artur Abreu Hendler, ra:231713
 
 # Detalhamento do Projeto
