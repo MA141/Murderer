@@ -1,3 +1,5 @@
+[Link dos slides](https://docs.google.com/presentation/d/1pCGv_wNoytKBnk53aXQAfj_TzJ8oRLM61EuP9PZzEOQ/edit?ts=5ec3fd09#slide=id.g858dc2d46b_0_18)
+
 # Detalhamento do Projeto
 O jogo Murderer será organizado, em UML, da seguinte maneira:
 
