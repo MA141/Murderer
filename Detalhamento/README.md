@@ -23,7 +23,7 @@
      * getPosGun: Retorna as coordenadas da arma.
      * getPosMurderer: Retorna as coordenadas do caçador.
      * getPosSurvivor: Retorna as coordenadas do sobrevivente.
-  * Instancias: 
+  * Instâncias: 
      * tab: Vetor bidimensional que armazena as peças, funcionando como um tabuleiro.
      * positions: Vetor bidimensional que armazena as coordenas das peças chaves (Caçador, Sobrevivente, Rádio e Arma).
 * IPieceStatic:<p>
@@ -31,7 +31,7 @@
   * Métodos:
      * collected: Retorna o estado da arma (true, se foi coletada, e false caso contrário).
      * ammo: Retorna a munição restante na arma.
-  * Instancias:
+  * Instâncias:
      *status: Armazena o estado da arma (0, se ainda não foi coletada, e 1 se foi coletada).
 * IPieceDynamic:<p>
 ![](IPieceDynamic.png)
@@ -59,7 +59,7 @@
      * getInitialPosition: Retorna um vetor bidimensional com as posições inciais das peças.
      * setInitialPosition: Estabelece as posições iniciais.
      * isOver: Finaliza o jogo e Informa o usuário.
-   * instâncias:
+   * Instâncias:
      * initialPositions: Armazena as posições iniciais.
      * state: Armazena uma variável da classe State.
  
