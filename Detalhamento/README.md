@@ -32,7 +32,7 @@
      * collected: Retorna o estado da arma (true, se foi coletada, e false caso contrário).
      * ammo: Retorna a munição restante na arma.
   * Instâncias:
-     *status: Armazena o estado da arma (0, se ainda não foi coletada, e 1 se foi coletada).
+     * status: Armazena o estado da arma (0, se ainda não foi coletada, e 1 se foi coletada).
 * IPieceDynamic:<p>
 ![](IPieceDynamic.png)
   * Métodos:
