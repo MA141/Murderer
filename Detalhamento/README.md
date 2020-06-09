@@ -12,15 +12,27 @@
 <p>Iniciado o programa, o Componentente Player fornece ao Board a localizaçao inicial das peças (Caçador, sobrevivente, arma e partes do rádio), que por sua vez cria de fato o tabuleiro e as posiciona. Esse então fornece uma instância do tipo Board ao componente State, que computa o Tempo jogado e busca por um vencedor, e ao componente Pieces, que gera as jogadas das peças dinâmicas (Sobrevivente e Caçador). O jogo então continua dessa forma, com as jogadas das peças dinâmicas sendo feitas até que o State determine que o jogo acabou, entreguando o resultado ao Player.
 
 ## Interfaces, classes e seus respectivos métodos e instâncias:
-* ITabuleiro:
-![](Itabuleiro.jpeg)
+* IBoard:<p>
+![](UMLBoard.png)
   * Métodos:
-     * Move: Recebe como paramâmetro as coordenadas do tabuleiro para as quais os personagens (sobrevivente e caçador) desejam ir e realiza essa movimentação no tabuleiro.
-     * Tabuleiro: Construtor.
+     * Board: Construtor. Recebe uma variável do tipo IInitial com as coordenadas dos itens (passadas pelo jogador) e cria o tabuleiro.
+     * move: Recebe como paramâmetro as coordenadas do tabuleiro para as quais os personagens (sobrevivente e caçador) desejam ir e realiza essa movimentação no tabuleiro.
+     * getPosRadio1: Retorna as coordenadas da primeira peça do rádio.
+     * getPosRadio2: Retorna as coordenadas da segunda peça do rádio.
+     * getPosRadio3: Retorna as coordenadas da terceira peça de rádio.
+     * getPosGun: Retorna as coordenadas da arma.
+     * getPosMurderer: Retorna as coordenadas do caçador.
+     * getPosSurvivor: Retorna as coordenadas do sobrevivente.
   * Instancias: 
-     * tab: Vetor bidimensional que armazena a posiçao das peças.
-     * posiçoes: Vetor bidimensional que armazena as coordenas das peças chaves (Caçador, Sobrevivente, Rádio e Arma).
-     
+     * tab: Vetor bidimensional que armazena as peças, funcionando como um tabuleiro.
+     * positions: Vetor bidimensional que armazena as coordenas das peças chaves (Caçador, Sobrevivente, Rádio e Arma).
+* IPieceStatic:<p>
+ ![](UMLPieceStatic.png)
+  * Métodos:
+     * collected: Retorna o estado da arma (true, se foi coletada, e false caso contrário).
+     * ammo: Retorna a munição restante na arma.
+  * Instancias:
+     *status: Armazena o estado da arma (0, se ainda não foi coletada, e 1 se foi coletada).
 * IPieceDynamic:<p>
 ![](IPieceDynamic.png)
   * Métodos:
