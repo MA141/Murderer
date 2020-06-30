@@ -1,0 +1,5 @@
+Funcionamento:
+Inicialmente, uma janela será criada com o grid e uma caixa de texto, na qual o usuário deverá digitar as coordenadas de uma peça. A cada inteção do usuário, o HandlerIni
+será ativado, fazendo com que a caixa usada seja descartada, e uma nova caixa, com outras instruções seja criada. Isso se repetirá até que todas as coordenadas tenham sido 
+dadas. Após isso, HandlerIni criará um FlowLayout com botões que ficarão no lugar da caixa de texto, e esses botões irão interagir com o metronomo, que por sua ver interage
+com Handler, que aciona as peças e o tabuleiro para fazer o movimento.
