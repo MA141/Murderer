@@ -10,8 +10,8 @@ import javax.swing.SwingUtilities;
 
 public class HandlerIni implements ActionListener{
 	JTextField jtf;
-	String text2 =new String("Escolha a coordenada da segunda peÁa do r·dio");
-	String text3 =new String("Escolha a coordenada da terceira peÁa do r·dio");
+	String text2 =new String("Escolha a coordenada da segunda pe√ßa do r√°dio");
+	String text3 =new String("Escolha a coordenada da terceira pe√ßa do r√°dio");
 	String text4 =new String("Escolha a coordenada da arma");
 	Window window;
 	Container win;
@@ -27,10 +27,11 @@ public class HandlerIni implements ActionListener{
 	
 	public void actionPerformed(ActionEvent evento) {
 		tab.removeAll();
+		String command=jtf.getText(); 
 		//usa o try-catch, se houver erro, pede para repetir
 		
 		//Converte command para coordenada da matriz
-		//window.hunter.board.positions[i+2]=position; //position eh a string convertida para o formato int[]
+		//window.hunter.board.positions[i+2]=position; //position eh a string command convertida para o formato int[]
 		
 		if (i<3) {
 			GUIFlowText novo = new GUIFlowText(tab,window, "DUMMY");
