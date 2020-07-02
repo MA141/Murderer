@@ -13,25 +13,27 @@ public class GUIGrid extends JPanel implements ActionListener{ //Nao tenho certe
 	public static String DIRETORIO = GUIGrid.class.getResource(".").getPath();
 	
 	Window window;
-	Board board; //Classe Board do jogo final;
+	//Board board; //Classe Board do jogo final;
 	int[] ocupadas = new int[6];
 	
 	public GUIGrid(Window window) {
 		super(new GridLayout(12,12));
 		this.window=window;
-		this.board=window.hunter.board;
+		//this.board=window.hunter.board;
 		draw();
 	}
 	
-	public int[] converte() {
+	public void converte() {
 		for (int i=0; i<6; i++) {
-			ocupadas[i]=(12*(board[i][0])+(board[i][1]));
+			ocupadas[i]=(12*(window.positions[i][0])+(window.positions[i][1]));
+			//System.out.println(window.positions[i][0]);
 		}
 	}
 	
 	void draw() {
+		converte();
 		ImageIcon sqr = new ImageIcon(DIRETORIO+"square.png"); //Preciso adicionar as imagens ainda.
-		ImageIcon hunter = new ImageIcon(DIRETORIO+"hunter.png");
+		ImageIcon hunter = new ImageIcon(DIRETORIO+"murderer.png");
 		ImageIcon surv = new ImageIcon(DIRETORIO+"survivor.png");
 		ImageIcon rad1 = new ImageIcon(DIRETORIO+"rad1.png");
 		ImageIcon rad2 = new ImageIcon(DIRETORIO+"rad2.png");
@@ -39,32 +41,18 @@ public class GUIGrid extends JPanel implements ActionListener{ //Nao tenho certe
 		ImageIcon gun = new ImageIcon(DIRETORIO+"gun.png");
 		
 		
-		for(int j=0; j<143; j++) { 
-			switch (j) { 
-			case ocupadas[0]:
-				this.add(new JLabel(hunter));
-				break;
-			case ocupadas[1]:
-				this.add(new JLabel(surv));
-				break;
-			case ocupadas[2]:
-				this.add(new JLabel(rad1));
-				break;
-			case ocupadas[3]:
-				this.add(new JLabel(rad2));
-				break;
-			case ocupadas[4]:
-				this.add(new JLabel(rad3));
-				break;
-			case ocupadas[5]:
-				this.add(new JLabel(gun));
-				break;
-			default:
-				this.add(new JLabel(sqr));
-			}
-				
+		for(int j=0; j<144; j++) { 
+			if(j==ocupadas[0])this.add(new JLabel(hunter));
+			else if(j==ocupadas[1])this.add(new JLabel(surv));
+			else if(j==ocupadas[2])this.add(new JLabel(rad1));
+			else if(j==ocupadas[3])this.add(new JLabel(rad2));
+			else if(j==ocupadas[4])this.add(new JLabel(rad3));
+			else if(j==ocupadas[5])this.add(new JLabel(gun));
+			else this.add(new JLabel(sqr));
 		}
+				
 	}
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {

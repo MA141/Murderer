@@ -10,7 +10,6 @@
 package all;
 
 import java.awt.event.ActionEvent;
-import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.event.ActionListener;
 
@@ -22,21 +21,26 @@ public class Handler implements ActionListener {
 	GUIGrid tab;
 	Window window;
 	Container win;
+	IResult result;
 	public static int i=0;
 	
 	public Handler (GUIGrid tab, Window window) {
 		this.tab=tab;
 		this.window=window;
-		//this.win=window.win;
+		result = new State(window.positions);
 	}
 		
 	public void actionPerformed(ActionEvent evento) {
 		tab.removeAll();
-		//Move os personagens a cada passagem do timer
+		/*//Move os personagens a cada passagem do timer
 		int[] movHunt =window.hunter.move();
 		int[] movSurv =window.survivor.move();
 		window.hunter.board.move(movHunt);
-		window.survivor.board.move(movSurv); //Acho que seria necessario passar a posicao inicial tambem..
+		window.survivor.board.move(movSurv); //Acho que seria necessario passar a posicao inicial tambem..*/
+		window.murderer.move();
+	//->if(result.getResult()==1) parar o timer e declarar o murderer como vencedor;
+		window.survivor.move();
+	//->if(result.getResult()==2) parar o timer e declarar o survivor como vencedor;
 		tab.draw();
 		
 		SwingUtilities.updateComponentTreeUI(tab);
