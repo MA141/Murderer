@@ -18,6 +18,7 @@ public class Window extends JFrame{
 		super();
 		this.positions=positions;
 		this.survivor=survivor;
+		this.murderer=murderer;
 
         setSize(580, 470); //Precisa arrumar a resolução.
         setDefaultCloseOperation(EXIT_ON_CLOSE);

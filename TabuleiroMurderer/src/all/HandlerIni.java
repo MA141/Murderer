@@ -10,9 +10,9 @@ import javax.swing.SwingUtilities;
 
 public class HandlerIni implements ActionListener{
 	JTextField jtf;
-	String text2 =new String("Escolha as coordenada da segunda peça do rádio");
-	String text3 =new String("Escolha as coordenada da terceira peça do rádio");
-	String text4 =new String("Escolha as coordenada da arma");
+	String text2 =new String("Escolha as coordenadas da segunda peça do rádio");
+	String text3 =new String("Escolha as coordenadas da terceira peça do rádio");
+	String text4 =new String("Escolha as coordenadas da arma");
 	Window window;
 	Container win;
 	GUIGrid tab;

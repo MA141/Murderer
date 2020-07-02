@@ -32,8 +32,8 @@ public class Handler implements ActionListener {
 		
 	public void actionPerformed(ActionEvent evento) {
 		tab.removeAll();
-		/*//Move os personagens a cada passagem do timer
-		int[] movHunt =window.hunter.move();
+		//Move os personagens a cada passagem do timer
+		/*int[] movHunt =window.hunter.move();
 		int[] movSurv =window.survivor.move();
 		window.hunter.board.move(movHunt);
 		window.survivor.board.move(movSurv); //Acho que seria necessario passar a posicao inicial tambem..*/
@@ -41,8 +41,10 @@ public class Handler implements ActionListener {
 	//->if(result.getResult()==1) parar o timer e declarar o murderer como vencedor;
 		window.survivor.move();
 	//->if(result.getResult()==2) parar o timer e declarar o survivor como vencedor;
-		tab.draw();
+		//tab.draw();
 		
+		//window.positions[0][0]+=1; //Se quiser testar com isso aqui, é só tirar o comentario e comentar os move
+		tab.draw();
 		SwingUtilities.updateComponentTreeUI(tab);
 	}
 }
