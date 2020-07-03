@@ -38,10 +38,27 @@ public class Window extends JFrame{
         Thread.sleep(3000);
         win.removeAll();
 
-        /////
-       
-
-        GUIGrid tab = new GUIGrid(this);
+        /////menu
+        GUIMenu menu = new GUIMenu(this);
+        win.add(menu, BorderLayout.CENTER);
+        SwingUtilities.updateComponentTreeUI(this);
+        
+        
+        
+        ////
+        /*GUIGrid tab = new GUIGrid(this);
+        win.add(tab, BorderLayout.NORTH);
+        
+        String text1 = new String("Escolha as coordenada da primeira peça do radio");
+        GUIFlowText control = new GUIFlowText(tab, this, text1);
+        win.add(control, BorderLayout.SOUTH);
+        
+        
+        SwingUtilities.updateComponentTreeUI(this);*/
+	}
+	
+	public void create() {
+		GUIGrid tab = new GUIGrid(this);
         win.add(tab, BorderLayout.NORTH);
         
         String text1 = new String("Escolha as coordenada da primeira peça do radio");
