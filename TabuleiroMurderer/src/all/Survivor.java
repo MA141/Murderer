@@ -12,6 +12,7 @@ public class Survivor extends PieceDynamic {
 		this.radio = radio;		
 	}
 	public void move() {
+		
 		if(Math.abs(positions[0][0]-positions[1][0])<=vision && (Math.abs(positions[1][0]-positions[1][1])<=vision)){// se esta proximo do murderer
 			if(gun.getAmount()>0) {
 				murderer.hit=true;
@@ -66,7 +67,7 @@ public class Survivor extends PieceDynamic {
 			}
 			return;
 		}
-		
+		//positions[1][1]--;
 	}
 	
 }

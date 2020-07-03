@@ -14,10 +14,6 @@ public class Murderer extends PieceDynamic implements IPieceDynamic {
 			hit=false;
 			return;
 		}
-		/*if(Math.abs(positions[1][0]-positions[0][0])<=1 && Math.abs(positions[1][1]-positions[0][1])<=1) {//cacador achou o sobrevivente
-			positions[0]=positions[1];
-			return;
-		}*/
 		if(awerness) {
 			for(int i=0;i<=speed;i++) {
 				if(positions[1][0]>positions[0][0]) positions[0][0]++;
@@ -54,6 +50,6 @@ public class Murderer extends PieceDynamic implements IPieceDynamic {
 			return;
 		}
 		
-		
+		//positions[0][0]++;
 	}
 }

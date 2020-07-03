@@ -3,7 +3,10 @@ package all;
 import java.awt.BorderLayout;
 import java.awt.Container;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
 
 public class Window extends JFrame{
 	private static final long serialVersionUID = -6913275480151879642L;
@@ -14,7 +17,7 @@ public class Window extends JFrame{
 	public int[][] positions;
 	Container win;
 	
-	public Window(int[][] positions,Murderer murderer,Survivor survivor) {
+	public Window(int[][] positions,Murderer murderer,Survivor survivor) throws InterruptedException {
 		super();
 		this.positions=positions;
 		this.survivor=survivor;
@@ -26,7 +29,18 @@ public class Window extends JFrame{
         win = new Container();
         win = getContentPane();
         win.setLayout(new BorderLayout());
+        setVisible(true);
         
+        //////tela inicial 
+        ImageIcon presents = new ImageIcon(DIRETORIO+"presents.png");
+        win.add(new JLabel(presents),BorderLayout.CENTER);
+        setVisible(true);
+        Thread.sleep(3000);
+        win.removeAll();
+
+        /////
+       
+
         GUIGrid tab = new GUIGrid(this);
         win.add(tab, BorderLayout.NORTH);
         
@@ -35,7 +49,7 @@ public class Window extends JFrame{
         win.add(control, BorderLayout.SOUTH);
         
         
-        setVisible(true);
+        SwingUtilities.updateComponentTreeUI(this);
 	}
 	
 	public Container getWin() {
