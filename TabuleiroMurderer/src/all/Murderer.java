@@ -3,7 +3,7 @@ package all;
 public class Murderer extends PieceDynamic implements IPieceDynamic {
 	int speed = 1;
 	boolean hit = false;
-	boolean awerness = false;
+	boolean awareness = false;
 	
 	Murderer(int[][] positions){
 		super(positions);	
@@ -14,14 +14,15 @@ public class Murderer extends PieceDynamic implements IPieceDynamic {
 			hit=false;
 			return;
 		}
-		if(awerness) {
-			for(int i=0;i<=speed;i++) {
+		if(awareness) {
+			for(int i=1;i<=speed;i++) {
 				if(positions[1][0]>positions[0][0]) positions[0][0]++;
 				if(positions[1][0]<positions[0][0]) positions[0][0]--;
 				if(positions[1][1]>positions[0][1]) positions[0][1]++;
 				if(positions[1][1]<positions[0][1]) positions[0][1]--;
+				System.out.println("assasasa");
 			}
-			awerness = false;
+			awareness = false;
 			return;
 		}
 		else {
@@ -49,7 +50,5 @@ public class Murderer extends PieceDynamic implements IPieceDynamic {
 			}
 			return;
 		}
-		
-		//positions[0][0]++;
 	}
 }

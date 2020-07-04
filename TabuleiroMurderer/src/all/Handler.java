@@ -23,6 +23,7 @@ public class Handler implements ActionListener {
 	Container win;
 	IResult result;
 	public static int i=0;
+	private int counter = 1;
 	
 	public Handler (GUIGrid tab, Window window) {
 		this.tab=tab;
@@ -32,19 +33,21 @@ public class Handler implements ActionListener {
 		
 	public void actionPerformed(ActionEvent evento) {
 		tab.removeAll();
-		//Move os personagens a cada passagem do timer
-		/*int[] movHunt =window.hunter.move();
-		int[] movSurv =window.survivor.move();
-		window.hunter.board.move(movHunt);
-		window.survivor.board.move(movSurv); //Acho que seria necessario passar a posicao inicial tambem..*/
+		if(counter % 70 == 0) window.murderer.speed++;//aumenta a velocidade do murderer depois de 70 rounds (testar valores)
+		if(counter % 13 == 0) window.murderer.awareness = true;// faz com que o murderer veja o survivor a cada 13 rounds (testar valores)
 		window.murderer.move();
-	//->if(result.getResult()==1) parar o timer e declarar o murderer como vencedor;
+		if(result.getResult()==1) {
+			window.win.removeAll();
+			SwingUtilities.updateComponentTreeUI(window.win);
+		}
 		window.survivor.move();
-	//->if(result.getResult()==2) parar o timer e declarar o survivor como vencedor;
-		//tab.draw();
-		
-		//window.positions[0][0]+=1; //Se quiser testar com isso aqui, é só tirar o comentario e comentar os move
+		if(result.getResult()==2)  {
+			window.win.removeAll();
+			SwingUtilities.updateComponentTreeUI(window.win);
+		}
 		tab.draw();
+		counter ++;
+		System.out.println(counter%60);
 		SwingUtilities.updateComponentTreeUI(tab);
 	}
 }

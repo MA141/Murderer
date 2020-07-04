@@ -1,6 +1,6 @@
 package all;
 
-public class State implements ITime, IResult{
+public class State implements IResult{
 	int time;
 	int result=0;//0 eh indefinido, 1 eh vitoria do murderer e 2 eh vitoria do survivor 
 	int[][] positions;

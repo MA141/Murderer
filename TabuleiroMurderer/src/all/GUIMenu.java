@@ -19,11 +19,13 @@ public class GUIMenu extends JPanel{
 	public static String DIRETORIO = Window.class.getResource(".").getPath();
 	ImageIcon bg = new ImageIcon(DIRETORIO + "background.png");
 	Window window;
+	Music music;
 	
 	public GUIMenu(Window window) {
 		super();
 		//Vai ter um background tbm :D
 		this.window=window;
+		this.music = window.music;
 		this.setLayout(null);
 		JLabel img=new JLabel(bg);
 		play= new JButton("Play");
@@ -70,7 +72,7 @@ public class GUIMenu extends JPanel{
 		stopmusic.addActionListener(
 		         new ActionListener() {
 		            public void actionPerformed(ActionEvent e) {
-		               //Vai parar a musica caso esteja tocando, e vai tocar caso esteja parada.
+		            	music.toggle();
 		            }
 		         }
 		      );

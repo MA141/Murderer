@@ -2,7 +2,10 @@ package all;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.io.IOException;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,15 +18,17 @@ public class Window extends JFrame{
 	public Murderer murderer;
 	public Survivor survivor;
 	public int[][] positions;
+	public Music music;
 	Container win;
 	
-	public Window(int[][] positions,Murderer murderer,Survivor survivor) throws InterruptedException {
+	public Window(int[][] positions,Murderer murderer,Survivor survivor) throws InterruptedException, UnsupportedAudioFileException, IOException, LineUnavailableException {
 		super();
 		this.positions=positions;
 		this.survivor=survivor;
 		this.murderer=murderer;
+		music = new Music();
 
-        setSize(580, 470); //Precisa arrumar a resolução.
+        setSize(620, 680); //Precisa arrumar a resolução.
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         
         win = new Container();
@@ -32,10 +37,7 @@ public class Window extends JFrame{
         setVisible(true);
         
         //////tela inicial 
-        ImageIcon presents = new ImageIcon(DIRETORIO+"presents.png");
-        win.add(new JLabel(presents),BorderLayout.CENTER);
-        setVisible(true);
-        Thread.sleep(3000);
+        win.add(new Presentation(this),BorderLayout.CENTER);
         win.removeAll();
 
         /////menu

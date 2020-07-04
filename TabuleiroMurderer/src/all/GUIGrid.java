@@ -26,7 +26,6 @@ public class GUIGrid extends JPanel implements ActionListener{ //Nao tenho certe
 	public void converte() {
 		for (int i=0; i<6; i++) {
 			ocupadas[i]=(12*(window.positions[i][0])+(window.positions[i][1]));
-			//System.out.println(window.positions[i][0]);
 		}
 	}
 	
@@ -35,6 +34,7 @@ public class GUIGrid extends JPanel implements ActionListener{ //Nao tenho certe
 		ImageIcon sqr = new ImageIcon(DIRETORIO+"square.png"); //Preciso adicionar as imagens ainda.
 		ImageIcon hunter = new ImageIcon(DIRETORIO+"murderer.png");
 		ImageIcon surv = new ImageIcon(DIRETORIO+"survivor.png");
+		if(window.survivor.gun.getAmount()>0)surv = new ImageIcon(DIRETORIO+"survivorWgun.png");	
 		ImageIcon rad1 = new ImageIcon(DIRETORIO+"rad1.png");
 		ImageIcon rad2 = new ImageIcon(DIRETORIO+"rad2.png");
 		ImageIcon rad3 = new ImageIcon(DIRETORIO+"rad3.png");

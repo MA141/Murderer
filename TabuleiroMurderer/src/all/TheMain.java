@@ -8,8 +8,6 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 public class TheMain {
 
 	public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException, InterruptedException {
-		new Music();
-		
 		
 		int[][] ini = {{0,0},{11,11},{20,20},{20,20},{20,20},{20,20}};
 		Murderer murderer = new Murderer(ini);
