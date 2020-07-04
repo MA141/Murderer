@@ -41,13 +41,12 @@ public class Handler implements ActionListener {
 			SwingUtilities.updateComponentTreeUI(window.win);
 		}
 		window.survivor.move();
-		if(result.getResult()==2)  {
+		if(result.getResult()==2)  {//survivor nunca ganha do jeito que ta, tenho que mudar um pouco a logica da move
 			window.win.removeAll();
 			SwingUtilities.updateComponentTreeUI(window.win);
 		}
 		tab.draw();
 		counter ++;
-		System.out.println(counter%60);
 		SwingUtilities.updateComponentTreeUI(tab);
 	}
 }
