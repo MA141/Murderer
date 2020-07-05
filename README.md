@@ -25,7 +25,7 @@ Durante o desenvolvimento do projeto, como a equipe ainda estava obtendo conheci
 Após o código ser finalizado a equipe concordou que um cuidado maior em relação ao planejamento pode facilitar consideravelmente o desenvolvimento de projetos grandes no futuro, afinal, nesses casos, quando se desenvolve em equipe acaba sendo necessário uma discussão maior do que será feito para evitar inconsistências.
 ## Documentação dos Componentes
 ### Diagrama Geral
-![](ReadMeImages/diagramaGeral.jpg)
+![](ReadMeImages/diagramaGeral2.jpg)
 
 
 ## Plano de Exceções
