@@ -1,11 +1,11 @@
 package all;
 
 public class Survivor extends PieceDynamic {
-	Murderer murderer;
+	IPieceDynamic murderer;
 	IPieceStatic gun;
 	IPieceStatic radio;
 	int vision=3;//range de squares que o survivor vê
-	Survivor(int[][] positions, Murderer murderer, IPieceStatic gun, IPieceStatic radio){
+	Survivor(int[][] positions,IPieceDynamic murderer, IPieceStatic gun, IPieceStatic radio){
 		super(positions);
 		this.murderer = murderer;
 		this.gun = gun;
@@ -15,8 +15,9 @@ public class Survivor extends PieceDynamic {
 		
 		if((Math.abs(positions[0][0]-positions[1][0])<=vision) && (Math.abs(positions[0][1]-positions[1][1])<=vision)){// se esta proximo do murderer
 			if(gun.getAmount()>0) {
-				murderer.hit=true;
+				//murderer.hit=true;
 				gun.setAmount(gun.getAmount()-1);
+				if(gun.getAmount()==0)positions[5][1]=0;
 			}
 			if(positions[0][0]>=positions[1][0] && positions[1][0]>0) positions[1][0]--;
 			if(positions[0][0]<=positions[1][0] && positions[1][0]<11) positions[1][0]++;
@@ -45,13 +46,13 @@ public class Survivor extends PieceDynamic {
 		if(Math.abs(positions[1][0]-positions[5][0])<=1 && Math.abs(positions[1][1]-positions[5][1])<=1){//sobrevivente achou a arma
 			positions[1][0]=positions[5][0]; positions[1][1]=positions[5][1];
 			positions[5][0]=20; positions[5][1]=20;
-			gun.setAmount(16);//mudar
+			gun.setAmount(20);//mudar
 			return;
 		}
 		else {
 			if(rand.nextBoolean()) {//decide se vai andar para cima ou para baixo(ou se vai ficar parado)
 				positions[1][0]+= rand.nextInt(2); 
-				if(positions[1][0]>11) positions[1][0]-=2;//se ele tiver na borda ele vai pro outro lado
+				if(positions[1][0]>11) positions[1][0]-=2;//se ele estiver na borda ele vai pro outro lado
 			}
 			else {
 				positions[1][0]-= rand.nextInt(2);
@@ -67,7 +68,6 @@ public class Survivor extends PieceDynamic {
 			}
 			return;
 		}
-		//positions[1][1]--;
 	}
 	
 }

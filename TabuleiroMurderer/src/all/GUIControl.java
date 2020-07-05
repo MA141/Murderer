@@ -34,8 +34,7 @@ public class GUIControl extends JPanel {
 	Container win;
 	
 	public GUIControl(GUIGrid tab, Window window) {
-		super(new FlowLayout()); //Preciso transformar em null layout...
-		//setSize(610,40);
+		super(new FlowLayout());
 		this.tab=tab;
 		this.window=window;
 		this.win=window.win;
@@ -105,7 +104,7 @@ public class GUIControl extends JPanel {
         window.positions[5][1]=20;
         window.win.removeAll();
         window.control.handlerIni.reset();
-        handler.reset();
+        //handler.reset();
         metro.stop();
         window.create();
 	}

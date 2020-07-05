@@ -24,7 +24,6 @@ public class Handler implements ActionListener {
 	Container win;
 	IResult result;
 	public static int i=0;
-	private static int counter = 1; //Nao tenho ctz que o counter eh static
 	GUIControl cont;
 	
 	public Handler (GUIGrid tab, Window window, GUIControl cont) {
@@ -32,16 +31,10 @@ public class Handler implements ActionListener {
 		this.window=window;
 		this.cont=cont;
 		result = new State(window.positions);
-	}
-	
-	public void reset() {
-		counter=1;
-	}
-		
+	}	
 	public void actionPerformed(ActionEvent evento) {
 		tab.removeAll();
-		if(counter % 70 == 0) window.murderer.speed++;//aumenta a velocidade do murderer depois de 70 rounds (testar valores)
-		if(counter % 13 == 0) window.murderer.awareness = true;// faz com que o murderer veja o survivor a cada 13 rounds (testar valores)
+		
 		window.murderer.move();
 		if(result.getResult()==1) { //murderer ganhou
 			window.win.removeAll();
@@ -59,7 +52,6 @@ public class Handler implements ActionListener {
 			SwingUtilities.updateComponentTreeUI(window.win);
 		}
 		tab.draw();
-		counter ++;
 		SwingUtilities.updateComponentTreeUI(tab);
 	}
 }

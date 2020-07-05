@@ -15,14 +15,14 @@ public class Window extends JFrame{
 	private static final long serialVersionUID = -6913275480151879642L;
 	public static String DIRETORIO = Window.class.getResource(".").getPath();
 	
-	public Murderer murderer;
-	public Survivor survivor;
+	public IPieceDynamic murderer;
+	public IPieceDynamic survivor;
 	public int[][] positions;
 	public Music music;
 	GUIFlowText control;
 	Container win;
 	
-	public Window(int[][] positions,Murderer murderer,Survivor survivor) throws InterruptedException, UnsupportedAudioFileException, IOException, LineUnavailableException {
+	public Window(int[][] positions,IPieceDynamic murderer,IPieceDynamic survivor) throws InterruptedException, UnsupportedAudioFileException, IOException, LineUnavailableException {
 		super();
 		this.positions=positions;
 		this.survivor=survivor;
@@ -45,10 +45,7 @@ public class Window extends JFrame{
         GUIMenu menu = new GUIMenu(this);
         win.add(menu, BorderLayout.CENTER);
         SwingUtilities.updateComponentTreeUI(this);
-        
-        
-        
-       
+          
 	}
 	
 	public void create() {

@@ -10,6 +10,5 @@ public abstract class PieceDynamic implements IPieceDynamic {
 		this.positions = positions;
 	}
 	public void move() {
-
 	}
 }
