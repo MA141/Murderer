@@ -4,7 +4,7 @@ public class Verifier {
     
     public static boolean isNum(String a){
         int b = Integer.parseInt(a);
-        if (b>=0 & b<12) return true; //Ver se quer manter assim ou passar para b>0 e b<13;
+        if (b>=0 & b<12) return true; 
         else return false;
     }
     
@@ -26,13 +26,14 @@ public class Verifier {
     public static int[] verif(String pos, int[][] taken)  throws InvalidInput{
         int[] ret = new int[2];
         if (verifSize(pos)==false){
-            throw new InvStrSize("String invalida, digite novamente");
+            throw new InvStrSize("Invalid input, please insert the position again.");
         }
         
         
         String[] sp= pos.split(",", 2);
+        if (sp.length<2) throw new InvStrSize("Invalid input, please insert the position again.");
         if (isNum(sp[0])==false || isNum(sp[1])==false){
-            throw new InvStrCharacter("Os caracteres digitados nao sao validos, digite novamente.");
+            throw new InvStrCharacter("The characters you typed are not valid, please insert the position again.");
         }
         else {
             ret[0] = Integer.parseInt(sp[0]);
@@ -40,7 +41,7 @@ public class Verifier {
         }
         
         if(isFree(ret, taken)==false){
-            throw new InvPiecePosition("A posicao ja esta ocupada, digite novamente.");
+            throw new InvPiecePosition("This position is already in use, please insert the position again.");
         }
         
         

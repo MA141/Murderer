@@ -14,12 +14,12 @@ public class Metronomo implements ActionListener{
 	Window window;
 	Handler handler;
 	
-	public Metronomo( int intervalo, GUIGrid tab, Window window) {
+	public Metronomo( int intervalo, GUIGrid tab, Window window, GUIControl cont) {
 		this.intervalo=intervalo;
 		this.window=window;
 		this.tab=tab;
 		metro = new Timer(intervalo, this);
-		handler= new Handler(tab, window);
+		handler= new Handler(tab, window, cont);
 		metro.addActionListener(handler);
 	}
 	

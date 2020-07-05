@@ -14,25 +14,26 @@ import javax.swing.SwingUtilities;
 
 public class GUIInstructions extends JPanel{
 	private static final long serialVersionUID = 8526218078200426878L;
-	//Vai ter um botão que volta, e uma imagem lgl com as instruções.
 	public static String DIRETORIO = Window.class.getResource(".").getPath();
-	ImageIcon inst = new ImageIcon(DIRETORIO + "instructions.png");
-	JButton back = new JButton("Return"); //Trocar por uma imagem.
+	ImageIcon inst = new ImageIcon(DIRETORIO +"MenuImages\\"+ "instructions4.png");
+	ImageIcon menu = new ImageIcon(DIRETORIO +"MenuImages\\"+ "menu.png");
+	JButton back = new JButton(menu); 
 	Window window;
 	
 	public GUIInstructions(Window window) {
 		super();
 		this.window=window;
-		setSize(580, 470);
+		setSize(620, 680);
 		this.setLayout(null);
 		JLabel img=new JLabel(inst);
-		this.add(img);
-		this.add(back);
+		
 		Insets insets = this.getInsets();
 		Dimension size = img.getPreferredSize();
-		img.setBounds(insets.left,insets.top, size.width, size.height);
 		size = back.getPreferredSize();
-		img.setBounds(200 + insets.left,400 + insets.top, size.width, size.height);
+		back.setBounds(25 + insets.left,170+ insets.top, 130, 30);
+		this.add(back);
+		img.setBounds(0,0, 620, 680);
+		this.add(img);
 		
 		back.addActionListener(
 		         new ActionListener() {

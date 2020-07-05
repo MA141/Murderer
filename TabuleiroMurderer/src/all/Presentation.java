@@ -19,12 +19,12 @@ public class Presentation extends JLabel{
 		for(int i = 1; i<11;i++) {
 			window.win.add(new JLabel(new ImageIcon(DIRETORIO+"title\\M"+nums[i]+".png")));
 			SwingUtilities.updateComponentTreeUI(window);
-			Thread.sleep(30);
+			Thread.sleep(90);
 			window.win.removeAll();
 		}
 		window.win.add(new JLabel(new ImageIcon(DIRETORIO+"title\\M"+nums[11]+".png")));
 		SwingUtilities.updateComponentTreeUI(window);
-		Thread.sleep(2000);
+		Thread.sleep(200);
 		window.win.removeAll();
 	
 	}

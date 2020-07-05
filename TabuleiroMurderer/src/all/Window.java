@@ -19,6 +19,7 @@ public class Window extends JFrame{
 	public Survivor survivor;
 	public int[][] positions;
 	public Music music;
+	GUIFlowText control;
 	Container win;
 	
 	public Window(int[][] positions,Murderer murderer,Survivor survivor) throws InterruptedException, UnsupportedAudioFileException, IOException, LineUnavailableException {
@@ -28,7 +29,7 @@ public class Window extends JFrame{
 		this.murderer=murderer;
 		music = new Music();
 
-        setSize(620, 680); //Precisa arrumar a resolução.
+        setSize(620, 680); 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         
         win = new Container();
@@ -47,24 +48,15 @@ public class Window extends JFrame{
         
         
         
-        ////
-        /*GUIGrid tab = new GUIGrid(this);
-        win.add(tab, BorderLayout.NORTH);
-        
-        String text1 = new String("Escolha as coordenada da primeira peça do radio");
-        GUIFlowText control = new GUIFlowText(tab, this, text1);
-        win.add(control, BorderLayout.SOUTH);
-        
-        
-        SwingUtilities.updateComponentTreeUI(this);*/
+       
 	}
 	
 	public void create() {
 		GUIGrid tab = new GUIGrid(this);
         win.add(tab, BorderLayout.NORTH);
         
-        String text1 = new String("Escolha as coordenada da primeira peça do radio");
-        GUIFlowText control = new GUIFlowText(tab, this, text1);
+        String text1 = new String("Choose the position of the first radio part (like this: x,y)");
+        control = new GUIFlowText(tab, this, text1);
         win.add(control, BorderLayout.SOUTH);
         
         

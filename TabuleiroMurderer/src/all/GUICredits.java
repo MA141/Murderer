@@ -15,23 +15,29 @@ import javax.swing.SwingUtilities;
 public class GUICredits extends JPanel {
 	private static final long serialVersionUID = -220644972650546199L;
 	public static String DIRETORIO = Window.class.getResource(".").getPath();
-	ImageIcon cred = new ImageIcon(DIRETORIO + "credits.png");
-	JButton back = new JButton("Return"); //Trocar por uma imagem.
+	ImageIcon cred = new ImageIcon(DIRETORIO +"MenuImages\\"+ "credits3.png");
+	ImageIcon menu = new ImageIcon(DIRETORIO +"MenuImages\\"+ "menu.png");
+	JButton back = new JButton(menu); //Trocar por uma imagem.
 	Window window;
 	
 	public GUICredits(Window window) {
 		super();
 		this.window=window;
-		setSize(580, 470);
+		setSize(620, 680);
 		this.setLayout(null);
-		JLabel img=new JLabel(cred);
-		this.add(img);
+		
 		this.add(back);
 		Insets insets = this.getInsets();
-		Dimension size = img.getPreferredSize();
-		img.setBounds(insets.left,insets.top, size.width, size.height);
-		size = back.getPreferredSize();
-		img.setBounds(200 + insets.left,400 + insets.top, size.width, size.height);
+		
+		Dimension size = back.getPreferredSize();
+		back.setBounds(10 + insets.left,590 + insets.top, 130, 30);
+		
+		JLabel img=new JLabel(cred);
+		size = img.getPreferredSize();
+		img.setBounds(0,0, 620, 680);
+		this.add(img);
+		
+		
 		
 		back.addActionListener(
 		         new ActionListener() {

@@ -20,7 +20,7 @@ public class GUIFlowText extends JPanel{
 		this.tab = tab;
 		this.window=window;
 		this.win = window.win;
-		JTextField jtf= new JTextField("", 50); //Talvez tenha problema com o texto padrao, entao pode ser que precise dar um setText.
+		JTextField jtf= new JTextField("", 80); 
 		
 		handlerIni = new HandlerIni(jtf, tab, window);
 		jtf.addActionListener(handlerIni); 		this.add(jtf, BorderLayout.SOUTH);

@@ -9,14 +9,14 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 public class HandlerIni implements ActionListener{
-	JTextField jtf;
-	String text2 =new String("Escolha as coordenadas da segunda peça do rádio");
-	String text3 =new String("Escolha as coordenadas da terceira peça do rádio");
-	String text4 =new String("Escolha as coordenadas da arma");
+	JTextField jtf; 
+	String text2 =new String("Choose the position of the second radio part");
+	String text3 =new String("Choose the position of the last radio part");
+	String text4 =new String("Choose the position of the handgun");
 	Window window;
 	Container win;
 	GUIGrid tab;
-	public static int i=0;
+	private static int i=0;
 	
 	public HandlerIni(JTextField jtf, GUIGrid tab, Window window) {
 		this.tab=tab;
@@ -25,10 +25,15 @@ public class HandlerIni implements ActionListener{
 		this.jtf=jtf;
 	}
 	
+	
+	public void reset() {
+		this.setI(0);
+	}
+	
 	public void actionPerformed(ActionEvent evento) {
 		tab.removeAll();
 		String command=jtf.getText(); 
-		//usa o try-catch, se houver erro, pede para repetir
+		
 		String err = new String();
 		boolean failed=false;
 		int[] st = new int[2];
@@ -61,7 +66,7 @@ public class HandlerIni implements ActionListener{
 			tab.draw();
 			SwingUtilities.updateComponentTreeUI(tab);
 		} catch (NumberFormatException erro){
-		    err="String com caracteres invalidos, digite novamente";
+		    err="Input contains invalid characters, please enter the position again";
 		    failed=true;
 		    novoErro = new GUIFlowText(tab, window, err);
 			win.remove(win.getComponent(1));
@@ -80,12 +85,11 @@ public class HandlerIni implements ActionListener{
 		
 
 		
-		//Converte command para coordenada da matriz
-		//window.hunter.board.positions[i+2]=position; //position eh a string command convertida para o formato int[]
+		
 		if (failed==false) {
-			if (i<4) {
+			if (getI()<4) {
 				GUIFlowText novo = new GUIFlowText(tab,window, "DUMMY");
-				switch (i) {
+				switch (getI()) {
 				case 0:
 					window.positions[2][0]=st[0];
 					window.positions[2][1]=st[1];
@@ -111,9 +115,9 @@ public class HandlerIni implements ActionListener{
 					window.positions[5][0]=st[0];
 					window.positions[5][1]=st[1];
 				}
-				i++;
+				setI(getI() + 1);
 			}
-			if(i>3) {
+			if(getI()>3) {
 				GUIControl controles = new GUIControl(tab, window);
 				win.getComponent(1).setVisible(false);
 				win.remove(win.getComponent(1));
@@ -122,6 +126,14 @@ public class HandlerIni implements ActionListener{
 			tab.draw();
 			SwingUtilities.updateComponentTreeUI(tab);
 		}
+	}
+
+	public static int getI() {
+		return i;
+	}
+
+	public static void setI(int i) {
+		HandlerIni.i = i;
 	}
 		
 }
