@@ -6,11 +6,11 @@ O projeto é um jogo do tipo simulação onde o personagem Murderer persegue o S
 <p> Artur Abreu Hendler - 231713 
   
 ## Videos do projeto
-### [video previa aqui]
-### [video do jogo aqui]
+### [Previa do jogo (primeiro vídeo)](https://drive.google.com/file/d/1y4wc81bDpK_LgzoWiO0ZwD6kmjrHN7W8/view?usp=sharing)
+### [Execução do jogo](https://drive.google.com/file/d/1szSMcByPCPwFA_lCWE14E02bafu4CwGE/view?usp=sharing)
 
 ## Slides do Projeto
-### [Slides da Prévia]
+### [Slides da Prévia (primeiro slide)](https://docs.google.com/presentation/d/1pCGv_wNoytKBnk53aXQAfj_TzJ8oRLM61EuP9PZzEOQ/edit?ts=5ec3fd09#slide=id.g858dc2d46b_0_18)
 ### [Slides da Apresentação Final]
 
 ## Relatório de Evolução
