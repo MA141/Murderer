@@ -29,6 +29,7 @@ public class Music {
 			playing = false;
 		}
 		else {
+			clip.loop(10);
 			clip.start();
 			playing = true;
 		}
