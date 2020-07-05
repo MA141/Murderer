@@ -24,6 +24,8 @@ O projeto é um jogo do tipo simulação onde o personagem Murderer persegue o S
 ## Conclusões e Trabalhos Futuros
 
 ## Documentação dos Componentes
-### Diagramas
+### Diagrama Geral
+![](ReadMeImages/diagramaGeral.jpg)
+
 
 ## Plano de Exceções
