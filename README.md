@@ -11,13 +11,13 @@ O projeto é um jogo do tipo simulação onde o personagem Murderer persegue o S
 
 ## Slides do Projeto
 ### [Slides da Prévia (primeiro slide)](https://docs.google.com/presentation/d/1pCGv_wNoytKBnk53aXQAfj_TzJ8oRLM61EuP9PZzEOQ/edit?ts=5ec3fd09#slide=id.g858dc2d46b_0_18)
-### [Slides da Apresentação Final]
+### [Apresentação Final](https://docs.google.com/presentation/d/118MMvXH7IwFXdzYhP3-ImI-_--WpKkF-fw_uo1WjIQE/edit?usp=sharing)
 
 ## Relatório de Evolução
 Durante o desenvolvimento do projeto, como a equipe ainda estava obtendo conhecimentos sobre interfaces gráficas, várias mudanças conceituais referentes a organização de classes e interfaces foram feitas. Isso, embora positivo do ponto de vista do aprendizado, fez com que o primeiro detalhamento feito em UML não se assemelhasse ao modelo final. Ainda no decorrer da criação, o grupo, dando ênfase à experiência do usuário, pôde implementar alguns aspectos de forma personalizada como botôes, planos de fundo e música.
 ## Destaques de Código
 
-## Destaques de Pattern(? acho que n precisa colocar)
+## Destaques de Pattern:
 ~~~java
 
 //Na classe GUIControl (Criada por um evento que notificou HandlerIni):
@@ -145,7 +145,7 @@ credits.addActionListener(
 Após o código ser finalizado a equipe concordou que um cuidado maior em relação ao planejamento pode facilitar consideravelmente o desenvolvimento de projetos grandes no futuro, afinal, nesses casos, quando se desenvolve em equipe acaba sendo necessário uma discussão maior do que será feito para evitar inconsistências.
 ## Documentação dos Componentes
 ### Diagrama Geral
-![](ReadMeImages/diagramaGeral2.jpg)
+![](ReadMeImages/diagramaGeral3.png)
 
 ### Componente Window:
 Window é responsável por gerenciar as posições dos itens e personagens no jogo, bem como os containers que serão mostrados na tela, podendo ser entendido como um Frame Composto. Por conta disso, foi o principal componente no que se diz respeito ao Pattern Composite.
@@ -154,7 +154,7 @@ Window é responsável por gerenciar as posições dos itens e personagens no jo
 #### Ficha Técnica:
 item | detalhamento
 ---- | ------------
-Classe | src/src/all/Window.java
+Classe | src/src/all.Window.java
 Autores | Guilherme Z. R. Dobins e Artur A. Hendler
 Interfaces | IWindow 
 
@@ -168,7 +168,7 @@ Assim como este componente, há outros como GUIInstructions, GUICredits e GUIGam
 #### Ficha Técnica:
 item | detalhamento
 ---- | ------------
-Classe | src/src/all/GUIMenu.java
+Classe | src/src/all.GUIMenu.java
 Autores | Guilherme Z. R. Dobins 
 Interfaces | Nenhuma
 
@@ -180,7 +180,7 @@ Por ser um container, este apenas extende JPanel, e não implementa nenhuma clas
 #### Ficha Técnica:
 item | detalhamento
 ---- | ------------
-Classe | src/src/all/GUIGrid.java
+Classe | src/src/all.GUIGrid.java
 Autores | Guilherme Z. R. Dobins e Artur A. Hendler
 Interfaces | Nenhuma
 
@@ -191,18 +191,19 @@ Interfaces | Nenhuma
 #### Ficha Técnica:
 item | detalhamento
 ---- | ------------
-Classe | src/src/all/HandlerIni.java
+Classe | src/src/all.HandlerIni.java
 Autores | Guilherme Z. R. Dobins 
 Interfaces | ActionListener
 
 ### Componente Metronomo:
 É responsável por controlar o intervalo entre as jogadas no jogo, bem como o início do jogo e eventuais pausas. Este componente recebe um ActionEvent de um JButton presente em GUIControl, e envia um ActionEvent para Handler, sendo assim um ótimo exemplo do Pattern Composite.
+<p> 
 ![](ReadMeImages/Metronomo.png)
 
 #### Ficha Técnica:
 item | detalhamento
 ---- | ------------
-Classe | src/src/all/Metronomo.java
+Classe | src/src/all.Metronomo.java
 Autores | Guilherme Z. R. Dobins 
 Interfaces | ActionListener
 
@@ -213,9 +214,65 @@ Gerencia os ActionEvents gerados pelo Metronomo, e é responsável por ativar o 
 #### Ficha Técnica:
 item | detalhamento
 ---- | ------------
-Classe | src/src/all/Handler.java
+Classe | src/src/all.Handler.java
 Autores | Guilherme Z. R. Dobins 
 Interfaces | ActionListener
+
+### Componente PieceDynamic:
+Agrega as classe Murderer e Survivor, responsáveis por gerar os movimentos dos personagens principais.
+![](ReadMeImages/PieceDynamic2.png)
+
+#### Ficha Técnica:
+item | detalhamento
+---- | ------------
+Classe | src/src/all.PieceDynamic.java
+Autores | Artur A. Hendler 
+Interfaces | IPieceDynamic
+
+### Componente Initial:
+Responsável por armazenar as posições iniciais das peças no tabuleiro.
+![](ReadMeImages/Initial2.png)
+
+#### Ficha Técnica:
+item | detalhamento
+---- | ------------
+Classe | src/src/all.Initial.java
+Autores | Artur A. Hendler 
+Interfaces | IInitial
+
+### Componente Music:
+Gerencia a reprodução da musica.
+![](ReadMeImages/Music2.png)
+
+#### Ficha Técnica:
+item | detalhamento
+---- | ------------
+Classe | src/src/all.Music.java
+Autores | Artur A. Hendler 
+Interfaces | ActionListener
+
+### Componente PieceStatic:
+Agrega os objetos arma e rádio, para serem passados como objetos para o Survivor.
+![](ReadMeImages/PieceStatic2.png)
+
+#### Ficha Técnica:
+item | detalhamento
+---- | ------------
+Classe | src/src/all.PieceStatic.java
+Autores | Artur A. Hendler 
+Interfaces | IPieceStatic
+
+### Componente State:
+Responsável por checar se o jogo acabou através da função getResult.
+![](ReadMeImages/State2.png)
+
+#### Ficha Técnica:
+item | detalhamento
+---- | ------------
+Classe | src/src/all.State.java
+Autores | Artur A. Hendler 
+Interfaces | IResult
+
 
 ## Plano de Exceções
 ### Diagrama das classes de exceção
