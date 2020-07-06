@@ -16,6 +16,55 @@ O projeto é um jogo do tipo simulação onde o personagem Murderer persegue o S
 ## Relatório de Evolução
 Durante o desenvolvimento do projeto, como a equipe ainda estava obtendo conhecimentos sobre interfaces gráficas, várias mudanças conceituais referentes a organização de classes e interfaces foram feitas. Isso, embora positivo do ponto de vista do aprendizado, fez com que o primeiro detalhamento feito em UML não se assemelhasse ao modelo final. Ainda no decorrer da criação, o grupo, dando ênfase à experiência do usuário, pôde implementar alguns aspectos de forma personalizada como botôes, planos de fundo e música.
 ## Destaques de Código
+~~~java
+//Parte do código responsável pela movimentação do murderer:
+public void move() {
+	if(rounds % 70 == 0) speed++;//aumenta a velocidade do murderer depois de 70 rounds
+	if(rounds % 13 == 0) awareness = true;// faz com que o murderer veja o survivor a cada 13 rounds
+	if((positions[0][0]==0 && positions[0][1]==0)&&(positions[1][0]==11 && positions[1][1]==11)) rounds =0;//se o jogo comecou de novo, ele zera;
+	rounds++;
+	if(((Math.abs(positions[0][0]-positions[1][0])<=3) && (Math.abs(positions[0][1]-positions[1][1])<=3))&&(positions[5][1]>0)){//esta baleado, nao se move
+		return;
+	}
+	if(awareness) {
+		for(int i=1;i<=speed;i++) {
+			if(positions[1][0]>positions[0][0]) positions[0][0]++;
+			if(positions[1][0]<positions[0][0]) positions[0][0]--;
+			if(positions[1][1]>positions[0][1]) positions[0][1]++;
+			if(positions[1][1]<positions[0][1]) positions[0][1]--;
+		}
+		awareness = false;
+		return;
+	}
+	else {
+		for(int i=0;i<=speed;i++) {
+			if(Math.abs(positions[1][0]-positions[0][0])<=1 && Math.abs(positions[1][1]-positions[0][1])<=1) {//cacador achou o sobrevivente
+				positions[0][0]=positions[1][0]; positions[0][1]=positions[1][1];
+				return;
+			}
+			if(rand.nextBoolean()) {//decide se vai andar para cima ou para baixo(ou se vai ficar parado)
+				positions[0][0]+= rand.nextInt(2); 
+				if(positions[0][0]>11) positions[0][0]-=2;//se ele tiver na borda ele vai pro outro lado
+			}
+			else {
+				positions[0][0]-= rand.nextInt(2);
+				if(positions[0][0]<0) positions[0][0]+=2;
+			}
+			if(rand.nextBoolean()){//decide se vai andar para esquerda ou para direita
+				positions[0][1]+= rand.nextInt(2);
+				if(positions[0][1]>11) positions[0][1]-=2;
+			}
+			else {
+				positions[0][1]-= rand.nextInt(2);
+				if(positions[0][1]<0) positions[0][1]+=2;
+			}
+		}
+		return;
+	}
+}
+
+
+~~~
 
 ## Destaques de Pattern:
 ~~~java
@@ -187,6 +236,7 @@ Interfaces | Nenhuma
 
 ### Componente HandlerIni:
 É responsável por gerenciar os ActionEvents gerados pelos JTextField presentes em GUIFlowText, verificar se as strings recebidas são válidas, e então passar a posição para a Window, assim como acionar o método draw() de GUIGrid.
+
 ![](ReadMeImages/HandlerIni.png)
 
 #### Ficha Técnica:
@@ -222,6 +272,7 @@ Interfaces | ActionListener
 
 ### Componente PieceDynamic:
 Agrega as classe Murderer e Survivor, responsáveis por gerar os movimentos dos personagens principais.
+
 ![](ReadMeImages/PieceDynamic2.png)
 
 #### Ficha Técnica:
@@ -233,6 +284,7 @@ Interfaces | IPieceDynamic
 
 ### Componente Initial:
 Responsável por armazenar as posições iniciais das peças no tabuleiro.
+
 ![](ReadMeImages/Initial2.png)
 
 #### Ficha Técnica:
@@ -244,6 +296,7 @@ Interfaces | IInitial
 
 ### Componente Music:
 Gerencia a reprodução da musica.
+
 ![](ReadMeImages/Music2.png)
 
 #### Ficha Técnica:
@@ -255,6 +308,7 @@ Interfaces | ActionListener
 
 ### Componente PieceStatic:
 Agrega os objetos arma e rádio, para serem passados como objetos para o Survivor.
+
 ![](ReadMeImages/PieceStatic2.png)
 
 #### Ficha Técnica:
