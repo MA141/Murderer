@@ -175,6 +175,7 @@ Interfaces | Nenhuma
 ### Componente GUIGrid:
 Representa o mapa do jogo, apresentando os assets em um grid. É responsável pelo caráter procedural do mapa.
 Por ser um container, este apenas extende JPanel, e não implementa nenhuma classe.
+
 ![](ReadMeImages/GUIGrid.png)
 
 #### Ficha Técnica:
@@ -209,6 +210,7 @@ Interfaces | ActionListener
 
 ### Componente Handler:
 Gerencia os ActionEvents gerados pelo Metronomo, e é responsável por ativar o movimento dos personagens e o método draw() de GUIGrid.
+
 ![](ReadMeImages/Handler.png)
 
 #### Ficha Técnica:
@@ -264,6 +266,7 @@ Interfaces | IPieceStatic
 
 ### Componente State:
 Responsável por checar se o jogo acabou através da função getResult.
+
 ![](ReadMeImages/State2.png)
 
 #### Ficha Técnica:
@@ -273,7 +276,40 @@ Classe | src/src/all.State.java
 Autores | Artur A. Hendler 
 Interfaces | IResult
 
+### Detalhamento das interfaces:
+#### Interface IWindow:
+A função é apenas padronizar a classe Window, com os métodos getter e setter de suas instâncias. 
+
+Método | Objetivo
+------ | ------------
+getSurvivor() | Retorna o sobrevivente
+getMurderer() | Retorna o murderer
+getPositions() | Retorna o vetor positions, contendo as posições dos personagens e itens
+getMusic() | Retorna o musica
+getWin() | Retorna o container win.
+create() | Cria o tabuleiro e o GUIFlowText, responsável por receber as posições digitadas pelo jogador, marcando assim o inicio do jogo.
+
+#### Interface ITable:
+A interface é usada como um objeto a ser transferido entre classes, muito útil sabendo que a maioria das classes ou passa ou recebe um GUIGrid e um Window,
+duas instâncias guardadas na classe Table.
+
+Método | Objetivo
+------ | ------------
+getGrid() | Retorna o GUIGrid
+getWindow() | Retorna a Window
+
 
 ## Plano de Exceções
-### Diagrama das classes de exceção
-![](ReadMEImages/Exceptions.png)
+### Diagrama da hierarquia de exceções
+
+![](ReadMeImages/Exceptions.png)
+
+### Descrição das classes de exceção
+Classe | Descrição
+------ | ------------
+InvalidInput | Engloba todas as exceções de inputs inválidos digitados pelo usuário.
+InvPiecePosition | Indica que a posição digitada já esta sendo usada.
+InvStrSize | Indica que a entrada do usuário possui um tamanho inválido (ex: 1, ou 333,33)
+InvStrCharacter | Indica que há um caractere invalido na entrada do usuario 
+
+
