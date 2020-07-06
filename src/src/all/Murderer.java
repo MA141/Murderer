@@ -8,7 +8,7 @@ public class Murderer extends PieceDynamic implements IPieceDynamic {
 	
 	Murderer(int[][] positions){
 		super(positions);	
-	}
+		}
 
 	public void move() {
 		if(rounds % 70 == 0) speed++;//aumenta a velocidade do murderer depois de 70 rounds

@@ -1,12 +1,3 @@
-//Se apertar start-> inicia o timer;
-//Se apertar stop-> para o timer;
-//Se apertar speed-> diminui o intervalo do timer
-//Se apertar slow-> aumenta o intervalo do timer
-//Se o timer ativar-> Chama o PieceDyn.move(), depois chama o PieceDyn.tabuleiro.move(); //Talvez seja melhor criar variaveis aqui para controlar mais facil
-//
-//
-//
-
 package all;
 
 import java.awt.event.ActionEvent;
@@ -25,31 +16,38 @@ public class Handler implements ActionListener {
 	IResult result;
 	public static int i=0;
 	GUIControl cont;
-	
-	public Handler (GUIGrid tab, Window window, GUIControl cont) {
-		this.tab=tab;
-		this.window=window;
+	ITable table;
+	int[][] pos;
+	IPieceDynamic murderer, survivor;
+
+	public Handler (ITable table, GUIControl cont) {
+		this.tab=table.getGrid();
+		this.window=table.getWindow();
+		win=window.getWin();
+		pos=window.getPositions();
 		this.cont=cont;
-		result = new State(window.positions);
+		this.survivor=window.getSurvivor();
+		this.murderer=window.getMurderer();
+		result = new State(pos);
 	}	
 	public void actionPerformed(ActionEvent evento) {
 		tab.removeAll();
 		
-		window.murderer.move();
+		murderer.move();
 		if(result.getResult()==1) { //murderer ganhou
-			window.win.removeAll();
+			win.removeAll();
 			cont.metro.stop();
 			GUIGameOver go= new GUIGameOver(cont, 1);
-			window.win.add(go, BorderLayout.CENTER);
-			SwingUtilities.updateComponentTreeUI(window.win);
+			win.add(go, BorderLayout.CENTER);
+			SwingUtilities.updateComponentTreeUI(win);
 		}
-		window.survivor.move();
+		survivor.move();
 		if(result.getResult()==2)  { //survivor ganhou
-			window.win.removeAll();
+			win.removeAll();
 			cont.metro.stop();
 			GUIGameOver go= new GUIGameOver(cont, 2);
-			window.win.add(go, BorderLayout.CENTER);
-			SwingUtilities.updateComponentTreeUI(window.win);
+			win.add(go, BorderLayout.CENTER);
+			SwingUtilities.updateComponentTreeUI(win);
 		}
 		tab.draw();
 		SwingUtilities.updateComponentTreeUI(tab);

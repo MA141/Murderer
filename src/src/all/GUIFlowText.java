@@ -1,6 +1,6 @@
 package all;
 
-import java.awt.FlowLayout;
+
 import java.awt.BorderLayout;
 import java.awt.Container;
 
@@ -15,14 +15,13 @@ public class GUIFlowText extends JPanel{
 	Container win;
 	Window window;
 	
-	public GUIFlowText(GUIGrid tab, Window window, String text) {
+	public GUIFlowText(ITable table, String text) {
 		super(new BorderLayout());
-		this.tab = tab;
-		this.window=window;
-		this.win = window.win;
+		this.tab = table.getGrid();
+		this.window=table.getWindow();
+		this.win = window.getWin();
 		JTextField jtf= new JTextField("", 80); 
-		
-		handlerIni = new HandlerIni(jtf, tab, window);
+		handlerIni = new HandlerIni(jtf, table);
 		jtf.addActionListener(handlerIni); 		this.add(jtf, BorderLayout.SOUTH);
 		this.add(new JLabel(text), BorderLayout.NORTH);
 	}

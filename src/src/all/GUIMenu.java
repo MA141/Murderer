@@ -1,7 +1,8 @@
 package all;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
+import java.awt.Container;
+
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,12 +22,13 @@ public class GUIMenu extends JPanel{
 	ImageIcon bg = new ImageIcon(DIRETORIO +"MenuImages\\"+ "background.png");
 	Window window;
 	Music music;
-	
+	Container win;
 	public GUIMenu(Window window) {
 		super();
 		
 		this.window=window;
-		this.music = window.music;
+		this.win=window.getWin();
+		this.music = window.getMusic();
 		this.setLayout(null);
 		JLabel img=new JLabel(bg);
 		
@@ -43,35 +45,35 @@ public class GUIMenu extends JPanel{
 		quit= new JButton(quitim);
 		Insets insets = this.getInsets();
 		
-		Dimension size = play.getPreferredSize();
+		
 		play.setBounds(235 + insets.left, 150 + insets.top, 130, 40);
 		this.add(play);
 		
-		size = stopmusic.getPreferredSize();
+		
 		stopmusic.setBounds(235 + insets.left, 200 + insets.top, 130, 40);
 		this.add(stopmusic);
 		
-		size = instructions.getPreferredSize();
+	
 		instructions.setBounds(235 + insets.left, 250 + insets.top, 130, 40);
 		this.add(instructions);
 		
-		size = credits.getPreferredSize();
+	
 		credits.setBounds(235 + insets.left, 300 + insets.top,130, 40);
 		this.add(credits);
 		
 		
-		size = quit.getPreferredSize();
+	
 		quit.setBounds(235 + insets.left, 350 + insets.top, 130, 40);
 		this.add(quit);
 		
-		size = img.getPreferredSize();
+	
 		img.setBounds(-10,-20, 620, 680); 
 		this.add(img);
 		
 		play.addActionListener(
 		         new ActionListener() {
 		            public void actionPerformed(ActionEvent e) {
-		               window.win.removeAll();
+		               win.removeAll();
 		               window.create();
 		            }
 		         }
@@ -88,21 +90,21 @@ public class GUIMenu extends JPanel{
 		instructions.addActionListener(
 		         new ActionListener() {
 		            public void actionPerformed(ActionEvent e) {
-		               window.win.removeAll();
+		               win.removeAll();
 		               GUIInstructions inst = new GUIInstructions(window);
-		               window.win.add(inst, BorderLayout.CENTER);
+		               win.add(inst, BorderLayout.CENTER);
 		               
-		               SwingUtilities.updateComponentTreeUI(window.win);
+		               SwingUtilities.updateComponentTreeUI(win);
 		            }
 		         }
 		      );
 		credits.addActionListener(
 		         new ActionListener() {
 		            public void actionPerformed(ActionEvent e) {
-		               window.win.removeAll();
+		               win.removeAll();
 		               GUICredits cred = new GUICredits(window);
-		               window.win.add(cred, BorderLayout.CENTER);
-		               SwingUtilities.updateComponentTreeUI(window.win);
+		               win.add(cred, BorderLayout.CENTER);
+		               SwingUtilities.updateComponentTreeUI(win);
 		            }
 		         }
 		      );

@@ -1,33 +1,34 @@
 package all;
 
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import java.util.Random;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
-public class GUIGrid extends JPanel implements ActionListener{
+
+public class GUIGrid extends JPanel {
 	private static final long serialVersionUID = 3521756621392929425L;
 	public static String DIRETORIO = GUIGrid.class.getResource(".").getPath();
 	
 	ImageIcon[] images = new ImageIcon[144];
 	Window window;;
 	int[] ocupadas = new int[6];
+	int[][] pos;
 	
 	public GUIGrid(Window window) {
 		super(new GridLayout(12,12));
 		this.window=window;
+		pos=window.getPositions();
 		images=criaIm();
 		draw();
 	}
 	
 	public void converte() {
 		for (int i=0; i<6; i++) {
-			ocupadas[i]=(12*(window.positions[i][0])+(window.positions[i][1]));
+			ocupadas[i]=(12*(pos[i][0])+(pos[i][1]));
 		}
 	}
 	
@@ -62,7 +63,7 @@ public class GUIGrid extends JPanel implements ActionListener{
 		ImageIcon sqr = new ImageIcon(DIRETORIO+"square.png");
 		ImageIcon hunter = new ImageIcon(DIRETORIO+"murderer.png");
 		ImageIcon surv = new ImageIcon(DIRETORIO+"survivor.png");
-		if(window.positions[5][0]>12)surv = new ImageIcon(DIRETORIO+"survivorWgun.png");	
+		if(pos[5][0]>12)surv = new ImageIcon(DIRETORIO+"survivorWgun.png");	
 		ImageIcon rad1 = new ImageIcon(DIRETORIO+"rad1.png");
 		ImageIcon rad2 = new ImageIcon(DIRETORIO+"rad2.png");
 		ImageIcon rad3 = new ImageIcon(DIRETORIO+"rad3.png");
@@ -84,7 +85,6 @@ public class GUIGrid extends JPanel implements ActionListener{
 		}
 				
 	}
-	@Override
-	public void actionPerformed(ActionEvent e) {	
-	}
+
+	
 }

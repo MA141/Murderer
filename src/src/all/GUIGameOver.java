@@ -1,6 +1,6 @@
 package all;
 
-import java.awt.BorderLayout;
+
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,9 +9,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
-import java.awt.Insets;
+
 
 public class GUIGameOver extends JPanel{
 	private static final long serialVersionUID = 2985670265302550444L;

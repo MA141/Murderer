@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
+
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
@@ -16,12 +16,16 @@ public class HandlerIni implements ActionListener{
 	Window window;
 	Container win;
 	GUIGrid tab;
+	ITable table;
+	int[][] pos;
 	private static int i=0;
 	
-	public HandlerIni(JTextField jtf, GUIGrid tab, Window window) {
-		this.tab=tab;
-		this.window=window;
-		this.win=window.win;
+	public HandlerIni(JTextField jtf, ITable table) {
+		this.table=table;
+		this.tab=table.getGrid();
+		this.window=table.getWindow();
+		this.win=window.getWin();
+		this.pos=window.getPositions();
 		this.jtf=jtf;
 	}
 	
@@ -39,12 +43,12 @@ public class HandlerIni implements ActionListener{
 		int[] st = new int[2];
 		GUIFlowText novoErro;
 		try {
-			st=Verifier.verif(command, window.positions);
+			st=Verifier.verif(command, pos);
 			failed=false;
 		} catch (InvStrSize erro){
 		    err=erro.getMessage();
 		    failed=true;
-		    novoErro = new GUIFlowText(tab, window, err);
+		    novoErro = new GUIFlowText(table, err);
 			win.remove(win.getComponent(1));
 			win.add(novoErro, BorderLayout.SOUTH);	
 			tab.draw();
@@ -52,7 +56,7 @@ public class HandlerIni implements ActionListener{
 		} catch (InvStrCharacter erro){
 			err=erro.getMessage();
 			failed=true;
-			novoErro = new GUIFlowText(tab, window, err);
+			novoErro = new GUIFlowText(table, err);
 			win.remove(win.getComponent(1));
 			win.add(novoErro, BorderLayout.SOUTH);
 			tab.draw();
@@ -60,7 +64,7 @@ public class HandlerIni implements ActionListener{
 		} catch (InvPiecePosition erro){
 			 err=erro.getMessage();
 			 failed=true;
-			 novoErro = new GUIFlowText(tab, window, err);
+			 novoErro = new GUIFlowText(table, err);
 			win.remove(win.getComponent(1));
 			win.add(novoErro, BorderLayout.SOUTH);	
 			tab.draw();
@@ -68,7 +72,7 @@ public class HandlerIni implements ActionListener{
 		} catch (NumberFormatException erro){
 		    err="Input contains invalid characters, please enter the position again";
 		    failed=true;
-		    novoErro = new GUIFlowText(tab, window, err);
+		    novoErro = new GUIFlowText(table, err);
 			win.remove(win.getComponent(1));
 			win.add(novoErro, BorderLayout.SOUTH);	
 			tab.draw();
@@ -76,7 +80,7 @@ public class HandlerIni implements ActionListener{
 		} catch (InvalidInput erro) {
 			 err=erro.getMessage();
 			 failed=true;
-			 novoErro = new GUIFlowText(tab, window, err);
+			 novoErro = new GUIFlowText(table, err);
 			win.remove(win.getComponent(1));
 			win.add(novoErro, BorderLayout.SOUTH);	
 			tab.draw();
@@ -88,37 +92,37 @@ public class HandlerIni implements ActionListener{
 		
 		if (failed==false) {
 			if (getI()<4) {
-				GUIFlowText novo = new GUIFlowText(tab,window, "DUMMY");
+				GUIFlowText novo = new GUIFlowText(table, "DUMMY");
 				switch (getI()) {
 				case 0:
-					window.positions[2][0]=st[0];
-					window.positions[2][1]=st[1];
-					novo = new GUIFlowText(tab, window, text2);
+					pos[2][0]=st[0];
+					pos[2][1]=st[1];
+					novo = new GUIFlowText(table, text2);
 					win.remove(win.getComponent(1));
 					win.add(novo, BorderLayout.SOUTH);	
 					break;
 				case 1:
-					window.positions[3][0]=st[0];
-					window.positions[3][1]=st[1];
-					novo = new GUIFlowText(tab, window, text3);
+					pos[3][0]=st[0];
+					pos[3][1]=st[1];
+					novo = new GUIFlowText(table, text3);
 					win.remove(win.getComponent(1));
 					win.add(novo, BorderLayout.SOUTH);
 					break;
 				case 2:
-					window.positions[4][0]=st[0];
-					window.positions[4][1]=st[1];
-					novo = new GUIFlowText(tab, window, text4);
+					pos[4][0]=st[0];
+					pos[4][1]=st[1];
+					novo = new GUIFlowText(table, text4);
 					win.remove(win.getComponent(1));
 					win.add(novo, BorderLayout.SOUTH);
 					break;
 				case 3:
-					window.positions[5][0]=st[0];
-					window.positions[5][1]=st[1];
+					pos[5][0]=st[0];
+					pos[5][1]=st[1];
 				}
 				setI(getI() + 1);
 			}
 			if(getI()>3) {
-				GUIControl controles = new GUIControl(tab, window);
+				GUIControl controles = new GUIControl(table);
 				win.getComponent(1).setVisible(false);
 				win.remove(win.getComponent(1));
 				win.add(controles, BorderLayout.SOUTH);

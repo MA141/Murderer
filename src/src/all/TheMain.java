@@ -12,9 +12,9 @@ public class TheMain {
 		
 		
 		IInitial initial = new Initial();
-		IPieceDynamic murderer = new Murderer(initial.getInitialPositions());
 		IPieceStatic gun = new Gun();	gun.setAmount(0);
 		IPieceStatic radio = new Radio();	radio.setAmount(0);
+		IPieceDynamic murderer = new Murderer(initial.getInitialPositions());
 		IPieceDynamic survivor = new Survivor(initial.getInitialPositions(), murderer, gun, radio);
 		Window window = new Window(initial.getInitialPositions(),murderer,survivor);
 		

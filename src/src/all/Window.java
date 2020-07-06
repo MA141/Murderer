@@ -6,21 +6,21 @@ import java.io.IOException;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-import javax.swing.ImageIcon;
+
 import javax.swing.JFrame;
-import javax.swing.JLabel;
+
 import javax.swing.SwingUtilities;
 
 public class Window extends JFrame{
 	private static final long serialVersionUID = -6913275480151879642L;
 	public static String DIRETORIO = Window.class.getResource(".").getPath();
 	
-	public IPieceDynamic murderer;
-	public IPieceDynamic survivor;
+	private IPieceDynamic murderer;
+	private IPieceDynamic survivor;
 	public int[][] positions;
-	public Music music;
+	private Music music;
 	GUIFlowText control;
-	Container win;
+	private Container win;
 	
 	public Window(int[][] positions,IPieceDynamic murderer,IPieceDynamic survivor) throws InterruptedException, UnsupportedAudioFileException, IOException, LineUnavailableException {
 		super();
@@ -53,13 +53,32 @@ public class Window extends JFrame{
         win.add(tab, BorderLayout.NORTH);
         
         String text1 = new String("Choose the position of the first radio part (like this: x,y)");
-        control = new GUIFlowText(tab, this, text1);
+        ITable table= new Table();
+        table.setGrid(tab);
+        table.setWindow(this);
+        
+        control = new GUIFlowText(table, text1);
         win.add(control, BorderLayout.SOUTH);
         
         
         SwingUtilities.updateComponentTreeUI(this);
 	}
+	public IPieceDynamic getSurvivor() {
+		return survivor;
+	}
+	public IPieceDynamic getMurderer() {
+		return murderer;
+	}
 	
+	public int[][] getPositions() {
+		return positions;
+	}
+	
+	
+	
+	public Music getMusic() {
+		return music;
+	}
 	public Container getWin() {
 		return win;
 	}
